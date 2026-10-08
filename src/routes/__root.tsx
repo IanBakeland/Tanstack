@@ -3,11 +3,14 @@ import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import { Navbar } from '../components/Navbar'
+import { getCart } from '../server/cart'
 import appCss from '../styles.css?url'
 
 // [Router] The root route wraps every page: the shared layout (navbar + footer) lives here.
 // [Start] shellComponent renders the full <html> document on the server (SSR).
 export const Route = createRootRoute({
+  // [Start] The cart is read from the cookie on the server, so the count is right in the first HTML
+  loader: () => getCart(),
   head: () => ({
     meta: [
       {
@@ -47,13 +50,14 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const { count } = Route.useLoaderData()
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
       <body className="flex min-h-screen flex-col">
-        <Navbar />
+        <Navbar cartCount={count} />
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-10">{children}</main>
         <footer className="border-t border-white/10 px-4 py-6 text-center text-sm text-white/50">
           Demo project, not affiliated with Monster Energy. No real products, payments or accounts.

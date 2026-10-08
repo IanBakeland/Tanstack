@@ -18,7 +18,7 @@ export type Product = {
 
 // Demo data. Names, caffeine (per 500 ml can) and images come from monsterenergy.com/nl-nl;
 // prices and descriptions are made up. This array only lives on the server.
-const products: Product[] = [
+export const products: Product[] = [
   {
     id: 'monster-original',
     name: 'The Original Green',

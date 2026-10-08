@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
+import { AddToCartButton } from '../../components/AddToCartButton'
 import { getProduct } from '../../server/products'
 
 // [Router] The $ in the filename makes a typed path param: /products/mango-loco → { productId: 'mango-loco' }
@@ -46,6 +47,9 @@ function ProductPage() {
             <p className="text-3xl font-extrabold">{product.caffeineMg} mg</p>
             <p className="text-xs uppercase text-white/50">Caffeine / 500 ml</p>
           </div>
+        </div>
+        <div className="mt-8">
+          <AddToCartButton productId={product.id} />
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 import { Link } from '@tanstack/react-router'
 
 // [Router] Every `to` is checked against the generated route tree: a typo is a TS error.
-export function Navbar() {
+export function Navbar({ cartCount }: { cartCount: number }) {
   return (
     <header className="sticky top-0 z-10 border-b border-white/10 bg-ink/90 backdrop-blur">
       <nav className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
@@ -20,10 +20,9 @@ export function Navbar() {
           <Link to="/login" className="nav-link">
             Log in
           </Link>
-          {/* Placeholder until the cart server functions exist (phase 6) */}
-          <span className="rounded-full bg-neon px-3 py-1 font-bold text-ink">
-            Cart 0
-          </span>
+          <Link to="/checkout" className="rounded-full bg-neon px-3 py-1 font-bold text-ink">
+            Cart {cartCount}
+          </Link>
         </div>
       </nav>
     </header>

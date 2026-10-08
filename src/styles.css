@@ -28,3 +28,26 @@ body {
 .nav-link[data-status="active"] {
   color: var(--color-neon);
 }
+
+.pill {
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 9999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.75);
+  transition: border-color 150ms, color 150ms;
+}
+.pill:hover {
+  border-color: var(--color-neon);
+  color: #fff;
+}
+.pill-active {
+  background: var(--color-neon);
+  border-color: var(--color-neon);
+  color: var(--color-ink);
+}
+.pill-active:hover {
+  color: var(--color-ink);
+}

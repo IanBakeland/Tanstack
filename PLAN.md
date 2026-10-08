@@ -66,21 +66,21 @@ Tick the boxes as you go. The ✋ items are things **you** do, not the agent.
 - [x] Home: hero + featured products (SSR)
 - [x] `/products/$productId` with `loader` + not-found page
 - [ ] ✋ View Source on `/` and check that the product names are in the HTML
-- [ ] **Deploy for the first time** (Vercel) and check that it works online
+- [x] **Deploy for the first time** (Vercel) and check that it works online
 
 ### Phase 4 — Search params ✅ demo 2, 3
-- [ ] `validateSearch` with `category` + `sort` and defaults
-- [ ] Filter/sort buttons that only change the URL
+- [x] `validateSearch` with `category` + `sort` and defaults
+- [x] Filter/sort buttons that only change the URL
 - [ ] ✋ Try `?sort=banaan` and `?category=lol` and make sure the page doesn't break
 
 ### Phase 5 — Preloading ✅ demo 5
-- [ ] `preload="intent"` on product links
+- [x] `preload="intent"` on product links
 - [ ] ✋ DevTools → Network → hover → see the request appear before you click
 
 ### Phase 6 — Cart ✅ demo 6
-- [ ] `addToCart` / `removeFromCart` / `getCart` server functions (cart stored in a **cookie**)
-- [ ] Add-to-cart button + navbar count updates
-- [ ] Cart contents shown on `/checkout`
+- [x] `addToCart` / `removeFromCart` / `getCart` server functions (cart stored in a **cookie**)
+- [x] Add-to-cart button + navbar count updates
+- [x] Cart contents shown on `/checkout`
 
 > Why a cookie and not an array on the server? On Vercel/Netlify the server restarts all the time, so an array would lose the cart. This is a good "what I learned" point.
 
