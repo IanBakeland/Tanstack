@@ -1,19 +1,36 @@
-import { Link, createFileRoute, useRouter } from '@tanstack/react-router'
+import { Link, createFileRoute, redirect, useRouter } from '@tanstack/react-router'
 import { useServerFn } from '@tanstack/react-start'
+import { getUser } from '../server/auth'
 import { getCart, removeFromCart } from '../server/cart'
 
 export const Route = createFileRoute('/checkout')({
+  // [Router] beforeLoad runs before the loader and the page. Throwing redirect() stops the
+  // navigation and sends you to /login?redirect=/checkout instead.
+  // [Start] getUser is a server function that reads the (fake) user cookie.
+  beforeLoad: async ({ location }) => {
+    const user = await getUser()
+    if (!user) {
+      throw redirect({ to: '/login', search: { redirect: location.href } })
+    }
+    // [Router] Whatever beforeLoad returns is added to the route context, fully typed
+    return { user }
+  },
   loader: () => getCart(),
   component: Checkout,
 })
 
 function Checkout() {
   const { items, total } = Route.useLoaderData()
+  // [Router] `user` is typed as string here because beforeLoad returned it
+  const { user } = Route.useRouteContext()
 
   return (
     <section className="mx-auto max-w-2xl">
       <h1 className="font-display text-5xl uppercase">Checkout</h1>
-      <p className="mt-2 text-sm text-white/50">Demo only: nothing is ordered or paid.</p>
+      <p className="mt-2 text-white/70">
+        Logged in as <span className="font-bold text-neon">{user}</span>
+      </p>
+      <p className="mt-1 text-sm text-white/50">Demo only: nothing is ordered or paid.</p>
 
       {items.length === 0 ? (
         <div className="mt-10 rounded-2xl border border-white/10 bg-panel p-8 text-center">

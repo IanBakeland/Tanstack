@@ -85,13 +85,13 @@ Tick the boxes as you go. The ✋ items are things **you** do, not the agent.
 > Why a cookie and not an array on the server? On Vercel/Netlify the server restarts all the time, so an array would lose the cart. This is a good "what I learned" point.
 
 ### Phase 7 — Fake auth ✅ demo 7
-- [ ] `/login` form → server function sets a `user` cookie
-- [ ] `/checkout` `beforeLoad` → not logged in → `redirect` to `/login?redirect=/checkout`
-- [ ] After login, go back to the redirect target
-- [ ] Logout button (so you can repeat the demo)
+- [x] `/login` form → server function sets a `user` cookie
+- [x] `/checkout` `beforeLoad` → not logged in → `redirect` to `/login?redirect=/checkout`
+- [x] After login, go back to the redirect target
+- [x] Logout button (so you can repeat the demo)
 
 ### Phase 8 — API route ✅ demo 8
-- [ ] `/api/products` returns JSON
+- [x] `/api/products` returns JSON
 
 ### Phase 9 — Type safety ✅ demo 9
 - [ ] ✋ Test it yourself: change `to="/products/$productId"` to `to="/product/$productId"` → error?
@@ -99,8 +99,8 @@ Tick the boxes as you go. The ✋ items are things **you** do, not the agent.
 - [ ] Revert all of it
 
 ### Phase 10 — Polish
-- [ ] Responsive (phone width), hover animations, loading/error states
-- [ ] "Demo project, not affiliated with Monster Energy" in the footer
+- [x] Responsive (phone width), hover animations, loading/error states
+- [x] "Demo project, not affiliated with Monster Energy" in the footer
 
 ### Phase 11 — Test everything
 - [ ] Walk through all 7 demos below on the **deployed** site
