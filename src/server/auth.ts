@@ -4,7 +4,7 @@ import { deleteCookie, getCookie, setCookie } from '@tanstack/react-start/server
 // ⚠️ FAKE AUTH, NOT SECURE. Demo only: there is no password, and the cookie just holds
 // the name you typed, so anyone can "log in" as anyone. Real auth needs a session store
 // or signed tokens (e.g. an auth library). This only exists to demo beforeLoad + redirect.
-const USER_COOKIE = 'user'
+export const USER_COOKIE = 'user'
 
 export const getUser = createServerFn().handler(async () => getCookie(USER_COOKIE) ?? null)
 

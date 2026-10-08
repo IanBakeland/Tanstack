@@ -36,7 +36,7 @@ export function ProductCard({ product }: { product: Product }) {
       </Link>
       <div className="mt-auto flex items-center justify-between pt-4">
         <span className="text-lg font-extrabold">€{product.price.toFixed(2)}</span>
-        <AddToCartButton productId={product.id} />
+        <AddToCartButton productId={product.id} productName={product.name} />
       </div>
     </article>
   )

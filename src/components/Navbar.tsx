@@ -40,9 +40,13 @@ export function Navbar({ cartCount, user }: { cartCount: number; user: string | 
               Log in
             </Link>
           )}
-          <Link to="/checkout" className="rounded-full bg-neon px-3 py-1 font-bold text-ink">
-            Cart {cartCount}
-          </Link>
+          <div className="relative">
+            <Link to="/checkout" className="rounded-full bg-neon px-3 py-1 font-bold text-ink">
+              Cart {cartCount}
+            </Link>
+            {/* "Added to cart" popups appear here, right under the cart (see AddToCartButton) */}
+            <div id="cart-feedback" className="absolute right-0 top-full z-20 mt-4 flex flex-col items-end gap-2" />
+          </div>
         </div>
       </nav>
     </header>

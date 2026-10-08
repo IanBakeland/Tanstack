@@ -1,5 +1,6 @@
 import { createServerFn } from '@tanstack/react-start'
 import { getCookie, setCookie } from '@tanstack/react-start/server'
+import { USER_COOKIE } from './auth'
 import { products } from './products'
 
 // The cart lives in a cookie, not in a server variable: on serverless hosts (Vercel)
@@ -36,6 +37,12 @@ function writeCart(cart: Cart) {
   })
 }
 
+// The button already sends logged-out users to /login, but the server checks too:
+// anyone can call a server function directly, so the UI alone isn't a real guard.
+function requireUser() {
+  if (!getCookie(USER_COOKIE)) throw new Error('Log in to change your cart')
+}
+
 function validateProductId(id: string) {
   if (!products.some((p) => p.id === id)) throw new Error(`Unknown product: ${String(id)}`)
   return id
@@ -58,6 +65,7 @@ export const getCart = createServerFn().handler(async () => {
 export const addToCart = createServerFn({ method: 'POST' })
   .validator(validateProductId)
   .handler(async ({ data: id }) => {
+    requireUser()
     const cart = readCart()
     cart[id] = Math.min((cart[id] ?? 0) + 1, 99)
     writeCart(cart)
@@ -66,6 +74,7 @@ export const addToCart = createServerFn({ method: 'POST' })
 export const removeFromCart = createServerFn({ method: 'POST' })
   .validator(validateProductId)
   .handler(async ({ data: id }) => {
+    requireUser()
     const cart = readCart()
     delete cart[id]
     writeCart(cart)

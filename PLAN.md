@@ -103,8 +103,8 @@ Tick the boxes as you go. The ✋ items are things **you** do, not the agent.
 - [x] "Demo project, not affiliated with Monster Energy" in the footer
 
 ### Phase 11 — Test everything
-- [ ] Walk through all 7 demos below on the **deployed** site
-- [ ] `npm run build` without errors
+- [x] Walk through all 7 demos below on the **deployed** site
+- [x] `npm run build` without errors
 
 ### Phase 12 — Wrap-up
 - [ ] README complete

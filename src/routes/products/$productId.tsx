@@ -49,7 +49,7 @@ function ProductPage() {
           </div>
         </div>
         <div className="mt-8">
-          <AddToCartButton productId={product.id} />
+          <AddToCartButton productId={product.id} productName={product.name} />
         </div>
       </div>
     </section>
