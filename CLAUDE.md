@@ -12,7 +12,7 @@ If a feature doesn't help answer that, don't build it.
 
 ## Hard rules
 
-1. **Verify every API in the current official docs before using it.** TanStack Start is young and its APIs have changed between versions (e.g. `validator` → `inputValidator`, the old `createServerFileRoute` → `server.handlers` on a route). Never copy old tutorials or code from memory.
+1. **Verify every API in the current official docs before using it.** TanStack Start is young and its APIs have changed between versions (e.g. server-fn input validation went `validator` → `inputValidator` → back to `validator` (in 1.168 `inputValidator` is deprecated; use `.validator`), and the old `createServerFileRoute` became `server.handlers` on a route). Never copy old tutorials or code from memory.
    - Start: https://tanstack.com/start/latest
    - Router: https://tanstack.com/router/latest
    - Check the installed version in `package.json` and match the docs to it.

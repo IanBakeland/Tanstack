@@ -63,8 +63,8 @@ Tick the boxes as you go. The ✋ items are things **you** do, not the agent.
 - [x] `ProductCard` + `ProductGrid`
 
 ### Phase 3 — Product routes ✅ demo 1, 4
-- [ ] Home: hero + featured products (SSR)
-- [ ] `/products/$productId` with `loader` + not-found page
+- [x] Home: hero + featured products (SSR)
+- [x] `/products/$productId` with `loader` + not-found page
 - [ ] ✋ View Source on `/` and check that the product names are in the HTML
 - [ ] **Deploy for the first time** (Vercel) and check that it works online
 

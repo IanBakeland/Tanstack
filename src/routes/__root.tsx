@@ -1,4 +1,4 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import { HeadContent, Link, Scripts, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 
@@ -35,6 +35,15 @@ export const Route = createRootRoute({
     ],
   }),
   shellComponent: RootDocument,
+  // [Router] Shown for URLs that match no route at all
+  notFoundComponent: () => (
+    <section className="py-16 text-center">
+      <h1 className="font-display text-5xl uppercase">Page not found</h1>
+      <Link to="/" className="mt-8 inline-block rounded-full bg-neon px-6 py-3 font-bold text-ink">
+        Back home
+      </Link>
+    </section>
+  ),
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {

@@ -1,3 +1,4 @@
+import { notFound } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 
 export type Category = 'ultra' | 'juice' | 'original' | 'other'
@@ -191,3 +192,17 @@ const products: Product[] = [
 // [Start] A server function: this runs only on the server. Calling it from the
 // client becomes a fetch request automatically. No API route needed.
 export const getProducts = createServerFn().handler(async () => products)
+
+export const getProduct = createServerFn()
+  // [Start] .validator checks the input at runtime (it comes over the network)
+  // and types `data` in the handler below.
+  .validator((id: string) => {
+    if (typeof id !== 'string') throw new Error('productId must be a string')
+    return id
+  })
+  .handler(async ({ data: id }) => {
+    const product = products.find((p) => p.id === id)
+    // [Router] notFound() thrown here reaches the route's notFoundComponent.
+    if (!product) throw notFound()
+    return product
+  })
